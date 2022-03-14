@@ -4,4 +4,4 @@
 ### Exercice
 
 
-Retrieve with Ajax request and then display the quotes in the HTML page.
+Retrieve data with Ajax request and then display the data in the HTML page.
