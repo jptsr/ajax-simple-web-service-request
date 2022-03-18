@@ -1,6 +1,7 @@
 @import url(./font.scss);
 
 $color1: rgb(44, 44, 44);
+$color2: rgb(155, 155, 155);
 $width: 19.4em;
 
 body{
@@ -23,12 +24,12 @@ body{
     padding-right: 20px;
     margin-bottom: 80px;
 
-    // .divH1{
+    .divH1{
         display: flex;
         justify-content: space-between;
         a{
             text-decoration: none;
-            color: $color1;
+            color: $color2;
             font-size: 0.65em;
             transition: 0.2s ease-in-out;
     
@@ -47,7 +48,15 @@ body{
         h6{
             margin-bottom: 5px;
         }
-    // }
+    }
+
+    .divH1_bis{
+        display: none;
+    }
+
+    .divH2{
+        display: none;
+    }
 }
 
 main{
@@ -173,41 +182,90 @@ footer{
 @media only screen and (min-width: 768px){
     body{
         display: flex;
+        flex-direction: column;
+        font-size: 17px;
     }
 
     .divHead{
         display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: start;
-        gap: 5px;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+        padding: 80px 50px 30px 40px;
+
+        .divH1{
+            display: none;
+        }
+
+        .divH1_bis{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            gap: 5px;
+
+            h6{
+                margin-top: 0;
+                font-size: 2.4em;
+                font-weight: 900;
+                margin-bottom: 5px;
+            }
+
+            a{
+                font-size: 0.7em;
+                text-decoration: none;
+                color: $color2;
+                transition: 0.3s ease-in-out;
+
+                &:hover{
+                    color: black;
+                    transform: translateX(13px) scale(1.1);
+                    // transform: scale(1.2);
+                    transition: 0.25s ease-in-out;
+                }
+
+                .linkTxt{
+                    margin-top: 2px;
+                    margin-bottom: 2px;
+                }
+            }
+        }
+
+        .divH2{
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            justify-content: start;
+
+            h6{
+                margin-top: 0;
+                font-size: 2.4em;
+                font-weight: 900;
+                margin-bottom: 5px;
+            }
+
+            .p_footer{
+                font-size: 0.7em;
+                margin-top: 2px;
+                color: $color2;
+            }
+        }
     }
 
     main{
-        margin-top: 150px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     footer{
-        display: none;
-    }
-
-    .div_footer{
-        padding-left: 20px;
-        padding-right: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        justify-content: start;
-        text-align: left;
+        padding-top: 80px;
+        border-top: 1px solid black;
 
         .h6_footer{
-            margin-top: 39px;
+            display: none;
         }
 
         .p_footer{
-            margin-top: 0px;
-            padding-top: 5px;
-            font-size: 0.65em;
+            display: none;
         }
     }
 }

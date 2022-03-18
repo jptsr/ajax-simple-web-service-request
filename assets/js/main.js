@@ -2,9 +2,8 @@ const a = document.getElementsByTagName('a')[0];
 const h1 = document.getElementsByTagName('h1')[0];
 const img = document.getElementsByTagName('img')[0];
 const blockquote = document.getElementById('quote');
-const p1 = document.getElementsByTagName('p')[2];
-const p2 = document.getElementsByTagName('p')[3];
-const p3 = document.getElementsByTagName('p')[4];
+const p1 = document.getElementById('tot_quotes');
+const p2 = document.getElementById('id');
 
 
 // AJAX CALL
@@ -27,14 +26,14 @@ xhttp.onload = write = () => {
 
     if(data.total_quotes < 2){
         p1.textContent = `${data.total_quotes} quote`; 
+    }else{
+        p1.textContent = `${data.total_quotes} quotes`;
     }
 
     h1.textContent = data.author;
     img.setAttribute('src', data.photo);
     blockquote.textContent = data.quote;
-    p1.textContent = `${data.total_quotes} quotes`;
     p2.textContent = `#${data.id}`;
-    p3.textContent = `#${data.id}`;
 };
 
 xhttp.open('GET', 'https://thatsthespir.it/api', true);
