@@ -1,10 +1,16 @@
+const a = document.getElementsByTagName('a')[0];
+const h1 = document.getElementsByTagName('h1')[0];
+const img = document.getElementsByTagName('img')[0];
 const blockquote = document.getElementById('quote');
+const p1 = document.getElementsByTagName('p')[2];
+const p2 = document.getElementsByTagName('p')[3];
+const p3 = document.getElementsByTagName('p')[4];
 
 
 // AJAX CALL
 const xhttp = new XMLHttpRequest();
 
-console.log(xhttp.readyState);
+// console.log(xhttp.readyState);
 
 xhttp.onreadystatechange = stateIsChange = () => {
     if(xhttp.readyState == 4){
@@ -13,18 +19,22 @@ xhttp.onreadystatechange = stateIsChange = () => {
 };
 
 xhttp.onload = write = () => {
-    console.log('write function is ok');
-
     // console.log(xhttp.responseText);
     let response = xhttp.responseText;
     let data = JSON.parse(response);
     console.log(data);
-    console.log(data.author);
+    // console.log(data.author);
 
-    let author = data.author;
-    blockquote.textContent = author;
+    if(data.total_quotes < 2){
+        p1.textContent = `${data.total_quotes} quote`; 
+    }
 
-    console.log('end of the write function');
+    h1.textContent = data.author;
+    img.setAttribute('src', data.photo);
+    blockquote.textContent = data.quote;
+    p1.textContent = `${data.total_quotes} quotes`;
+    p2.textContent = `#${data.id}`;
+    p3.textContent = `#${data.id}`;
 };
 
 xhttp.open('GET', 'https://thatsthespir.it/api', true);
@@ -32,7 +42,10 @@ xhttp.send();
 
 xhttp.onerror = error = () => {
     console.log('ERROR, request failed !');
+    blockquote.textContent = 'ERROR';
 };
+
+a.addEventListener('click', () => {document.location.reload()});
 
 
 // FETCH METHOD

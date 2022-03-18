@@ -1,5 +1,213 @@
 @import url(./font.scss);
 
+$color1: rgb(44, 44, 44);
+$width: 19.4em;
+
 body{
     margin: 0 auto;
+    font-family: "marcellus";
+    font-size: 15px;
+    color: $color1;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.divHead{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 80px;
+
+    // .divH1{
+        display: flex;
+        justify-content: space-between;
+        a{
+            text-decoration: none;
+            color: $color1;
+            font-size: 0.65em;
+            transition: 0.2s ease-in-out;
+    
+            &:hover{
+                color: black;
+                transform: scale(1.05);
+                transition: 0.2s ease-in-out;
+            }
+    
+            .linkTxt{
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+    
+        h6{
+            margin-bottom: 5px;
+        }
+    // }
+}
+
+main{
+    position: relative;
+    margin: auto;
+    width: $width;
+    @extend .flex;
+
+    .div1{
+        border-bottom: 0.1px solid $color1;
+        margin-bottom: 30px;
+        width: $width;
+
+        h1{
+            font-size: 1.7em;
+            text-align: center;
+        }
+    }
+
+    .div2{
+        @extend .flex;
+        width: $width;
+
+        img{
+            width: $width;
+            height: auto;
+            margin: 0 auto;
+        }
+    }
+
+    .div3{
+        border-top: 0.1px solid black;
+        border-bottom: 0.1px solid black;
+        margin: 30px auto;
+        width: $width;
+
+        blockquote{
+            margin-left: 0;
+            margin-right: 0;
+            text-align: left;
+        }
+    
+        .total_quotes{
+            text-align: right;
+            font-size: 0.8em;
+        }
+    }
+}
+
+footer{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    .h6_footer{
+        margin-top: 7px;
+    }
+
+    .p_footer{
+        font-size: 0.65em;
+        margin-top: 7px;
+    }
+}
+
+@media only screen and(max-width: 478px) {
+    .divHead{
+        .divH1{
+            display: flex;
+            flex-direction: column;
+            .rand{
+                width: auto;
+                border-top: 1px solid black;
+                position: absolute;
+                top: 50px;
+                padding-top: 5px;
+                padding-right: 25px;
+            }
+        }
+    }
+
+    main{
+        width: 14em;
+
+        .div1{
+            width: 14em;
+        }
+    
+        .div2{
+            width: 14em;
+    
+            img{
+                width: 14em;
+            }
+        }
+
+        .div3{
+            width: 14em;
+        }
+    }
+
+    footer{
+        .rand{
+            width: 75px;
+            border-top: 1px solid black;
+            margin-top: 15px;
+            padding-top: 5px;
+        }
+
+        .p_footer{
+            margin-top: 15px;
+            padding-top: 5px;
+        }
+    }
+
+    .div_footer{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    body{
+        display: flex;
+    }
+
+    .divHead{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 5px;
+    }
+
+    main{
+        margin-top: 150px;
+    }
+
+    footer{
+        display: none;
+    }
+
+    .div_footer{
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: start;
+        text-align: left;
+
+        .h6_footer{
+            margin-top: 39px;
+        }
+
+        .p_footer{
+            margin-top: 0px;
+            padding-top: 5px;
+            font-size: 0.65em;
+        }
+    }
 }
