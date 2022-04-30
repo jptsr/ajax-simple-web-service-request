@@ -1,9 +1,9 @@
 # ajax-simple-web-service-request
 
 
-### Exercice
+### Exercise
 
 
-Retrieve data with Ajax request and then display the data in the HTML page.
+Retrieve data with Ajax request and then display the data in the HTML page (responsive).
 
 ***[Link](https://jptsr.github.io/ajax-simple-web-service-request/)***
